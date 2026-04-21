@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MedBot - Clinical Assistant</title>
+    <!-- Modern Typeface -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <!-- CSRF Token setup -->
+    <meta name="csrf-token" content="{{ csrf_token }}">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar or left section -->
+        <aside class="sidebar">
+            <div class="logo">
+                <div class="logo-icon">+</div>
+                <h2>MedBot AI</h2>
+            </div>
+            <div class="sidebar-info">
+                <p>Welcome to MedBot. Powered by MedGemma 27b, this clinical assistant helps analyze your symptoms.</p>
+            </div>
+            <div class="disclaimer">
+                <p><strong>Disclaimer:</strong> This is an AI tool and not a substitute for professional medical advice.</p>
+            </div>
+        </aside>
+
+        <!-- Main Chat Area -->
+        <main class="chat-area">
+            <header class="chat-header">
+                <h1>Clinical Consultation</h1>
+                <span class="status-indicator">Online</span>
+            </header>
+
+            <div class="chat-messages" id="chat-messages">
+                <!-- Messages will be appended here -->
+                <div class="message ai">
+                    <div class="avatar">AI</div>
+                    <div class="message-content">
+                        Hello. I am your Clinical Assistant. Please describe your symptoms in detail, including when they started and any other relevant context.
+                    </div>
+                </div>
+            </div>
+
+            <div class="chat-input-container">
+                <form id="chat-form">
+                    <input type="text" id="user-input" placeholder="Type your symptoms here..." autocomplete="off">
+                    <button type="submit" id="send-btn">Send</button>
+                </form>
+            </div>
+        </main>
+    </div>
+
+    <script src="{% static 'js/app.js' %}"></script>
+</body>
+</html>
