@@ -78,10 +78,33 @@ body {
 
 .disclaimer {
     font-size: 0.85rem;
-    color: #ef4444;
-    background: rgba(239, 68, 68, 0.1);
+    color: #94a3b8;
+    background: rgba(148, 163, 184, 0.1);
     padding: 1rem;
     border-radius: 12px;
+}
+
+.sidebar-footer {
+    margin-top: auto;
+    padding-top: 1rem;
+}
+
+.new-chat-btn {
+    width: 100%;
+    padding: 0.75rem;
+    background: transparent;
+    border: 1px solid var(--primary-color);
+    color: var(--primary-color);
+    border-radius: 12px;
+    cursor: pointer;
+    font-family: inherit;
+    font-weight: 500;
+    transition: all 0.2s;
+}
+
+.new-chat-btn:hover {
+    background: var(--primary-color);
+    color: #fff;
 }
 
 /* Chat Area */
@@ -212,6 +235,8 @@ body {
     padding: 0.75rem 1.5rem;
     font-family: inherit;
     font-size: 1rem;
+    resize: none;
+    max-height: 150px;
 }
 
 #user-input::placeholder {
@@ -284,4 +309,33 @@ body {
 }
 .message-content strong {
     color: #fff;
+}
+
+/* Responsive UI */
+@media (max-width: 768px) {
+    .app-container {
+        flex-direction: column;
+        height: 100vh;
+        width: 100%;
+        border-radius: 0;
+    }
+    
+    .sidebar {
+        width: 100%;
+        padding: 1rem;
+        border-right: none;
+        border-bottom: 1px solid var(--glass-border);
+    }
+    
+    .logo {
+        margin-bottom: 1rem;
+    }
+    
+    .chat-messages {
+        padding: 1rem;
+    }
+    
+    .chat-input-container {
+        padding: 1rem;
+    }
 }

@@ -6,6 +6,31 @@ document.addEventListener('DOMContentLoaded', () => {
     // Conversation history to send to backend
     let conversationHistory = [];
 
+    // Handle Shift+Enter for new lines in textarea
+    userInput.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' && !e.shiftKey) {
+            e.preventDefault();
+            chatForm.dispatchEvent(new Event('submit'));
+        }
+    });
+
+    // Handle New Chat button
+    const newChatBtn = document.getElementById('new-chat-btn');
+    if (newChatBtn) {
+        newChatBtn.addEventListener('click', () => {
+            conversationHistory = [];
+            chatMessages.innerHTML = `
+                <div class="message ai">
+                    <div class="avatar">AI</div>
+                    <div class="message-content">
+                        Hello. I am your Clinical Assistant. Please describe your symptoms in detail, including when they started and any other relevant context.
+                    </div>
+                </div>
+            `;
+            userInput.value = '';
+        });
+    }
+
     chatForm.addEventListener('submit', async (e) => {
         e.preventDefault();
         const text = userInput.value.trim();
