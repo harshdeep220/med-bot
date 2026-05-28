@@ -6,7 +6,7 @@ load_dotenv()
 
 # AI Studio Settings
 GEMINI_API_KEY = os.getenv("GEMINI_API_KEY", "your_api_key_here")
-MODEL_ID = os.getenv("MODEL_ID", "gemini-3-flash-preview") # Using Gemini 2.0 Flash as MedGemma isn't on AI Studio
+MODEL_ID = os.getenv("MODEL_ID", "gemini-1.5-flash") # Default to Gemini 1.5 Flash for the free tier
 
 # Strict doctor persona with medical disclaimers and guardrails
 SYSTEM_PROMPT = """You are an experienced clinical assistant AI. 
